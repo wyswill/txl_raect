@@ -23,7 +23,7 @@ class App extends React.Component<any, any, Tstate> {
   }
 
   componentDidMount() {
-    const _swiper = new swiper('.swiper-container', {
+    const _swiper = new swiper('#swiperApp', {
       direction: "horizontal",
       on: {
         slideChangeTransitionStart: ({activeIndex}) => {
@@ -43,7 +43,7 @@ class App extends React.Component<any, any, Tstate> {
 
   render() {
     return (<div className="App">
-      <div className="swiper-container">
+      <div className="swiper-container" id='swiperApp'>
         <div className="swiper-wrapper">
           {this.state.pages.map((ele: string, index: number) => (<div className='swiper-slide' key={index}>{switchPage(ele)}</div>))}
         </div>
@@ -51,6 +51,7 @@ class App extends React.Component<any, any, Tstate> {
       <div className='buttonBar'>
         {this.state.pages.map((ele: string, index: number) => (<div onClick={this.changePage.bind(this, index)} className={`buttonBarItem ${this.state.activeIndex === index ? 'active' : ''}`} key={index}>{ele}</div>))}
       </div>
+
     </div>);
   }
 
