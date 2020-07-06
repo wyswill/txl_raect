@@ -91,11 +91,13 @@ class App extends React.Component<any, any, Tstate> {
       <div className='buttonBar'>
         {this.state.pages.map((ele: singlePage, index: number) =>
             (
-                <UpAndDown key={index} >
-                  <img src={
-                    this.state.activeIndex === index ? this.state.pages[index].imagePress : this.state.pages[index].imagePath} alt=''/>
-                  <p>{ele.name}</p>
-                </UpAndDown>
+                <div onClick={this.changePage.bind(this, index)} key={index}>
+                  <UpAndDown>
+                    <img src={
+                      this.state.activeIndex === index ? this.state.pages[index].imagePress : this.state.pages[index].imagePath} alt=''/>
+                    <p>{ele.name}</p>
+                  </UpAndDown>
+                </div>
             )
         )
         }
