@@ -35,7 +35,6 @@ export default class MainPage extends React.Component<any, TState> {
           <ModuleDisplay headICon={headIcon4} moduleName='帖子广场'>
             <div>asdfasd</div>
           </ModuleDisplay>
-
         </div>
     );
   }
