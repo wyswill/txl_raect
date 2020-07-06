@@ -1,8 +1,13 @@
 import React from "react";
 import './mainPage.less';
 
-export default function MainPage(props: any) {
-  return (<div className='mainPage'>
-    mainPage
-  </div>);
+type TState = {}
+export default class MainPage extends React.Component<any, TState> {
+  public readonly state: Readonly<TState> = {}
+
+  render() {
+    return (<div className='mainPage'>
+      mainPage
+    </div>);
+  }
 }
