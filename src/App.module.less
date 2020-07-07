@@ -1,9 +1,13 @@
+.height() {
+  height: 90vh;
+}
+
 .App {
-  height: 100vh;
   background: #f2f5f7;
+  .height();
 
   .swiper-container {
-    height: 100%;
+    .height();
   }
 
   .buttonBar {
@@ -13,11 +17,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    position: absolute;
-    bottom: 0;
-    z-index: 2;
-    width: 100%;
-
     .active {
       background: red;
     }

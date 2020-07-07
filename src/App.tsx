@@ -1,7 +1,8 @@
 import React from "react";
-import "./App.less";
+// @ts-ignore
+import style from "./App.module.less";
 import swiper from "swiper";
-import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.less";
 import MainPage from "./views/mainPage/mainPage";
 import Plaza from "./views/plaza/plaza";
 import Group from "./views/group/group";
@@ -18,6 +19,7 @@ import ic_mine_press from "./assets/images/tab/ic_mine_press.png";
 import ic_mine from "./assets/images/tab/ic_mine.png";
 import ic_release_press from "./assets/images/tab/ic_release_press.png";
 import ic_release from "./assets/images/tab/ic_release.png";
+
 type singlePage = {
   [index: string]: any;
   name: string;
@@ -85,7 +87,7 @@ class App extends React.Component<any, any, Tstate> {
 
   render() {
     return (
-      <div className="App">
+      <div className={style.App}>
         <div className="swiper-container" id="swiperApp">
           <div className="swiper-wrapper">
             {this.state.pages.map((ele: singlePage, index: number) => (
@@ -95,11 +97,13 @@ class App extends React.Component<any, any, Tstate> {
             ))}
           </div>
         </div>
-        <div className="buttonBar">
+        <div className={style.buttonBar}>
           {this.state.pages.map((ele: singlePage, index: number) => (
             <div onClick={this.changePage.bind(this, index)} key={index}>
               <UpAndDown>
-                <img src={this.state.activeIndex === index ? this.state.pages[index].imagePress : this.state.pages[index].imagePath} alt="" />
+                <img
+                  src={this.state.activeIndex === index ? this.state.pages[index].imagePress : this.state.pages[index].imagePath}
+                  alt=""/>
                 <p>{ele.name}</p>
               </UpAndDown>
             </div>
@@ -113,11 +117,11 @@ class App extends React.Component<any, any, Tstate> {
 function switchPage(name: string) {
   // noinspection NonAsciiCharacters
   const map: { [index: string]: any } = {
-    首页: <MainPage />,
-    广场: <Plaza />,
-    群组: <Group />,
-    消息: <Msg />,
-    我的: <Mine />,
+    首页: <MainPage/>,
+    广场: <Plaza/>,
+    群组: <Group/>,
+    消息: <Msg/>,
+    我的: <Mine/>,
   };
   return map[name];
 }

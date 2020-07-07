@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/ModuleDisplay.less'
+import style from "../styles/ModuleDisplay.module.less";
 
 /**
  * @param headICon 模块图片
@@ -11,18 +11,22 @@ type TProps = {
   headICon: string,
   moduleName: string,
   children: any
-  extClass?: string
+  extClass?: string,
+  extTtileClass?: string,
+  extContentClass?: string
 }
 /**
  * 基本的模块展示组件
  * @param props TProps
  */
 export default function ModuleDisplay(props: TProps) {
-  return <div className={`ModuleDisplay ${props.extClass ? props.extClass : ''}`}>
-    <div className="title">
-      <img src={props.headICon} alt='headIcon'/>
-      <h3>{props.moduleName}</h3>
+  return (
+    <div className={`${style.ModuleDisplay} ${props.extClass}`}>
+      <div className={`${style.title} ${props.extTtileClass}`}>
+        <img src={props.headICon} alt='headIcon'/>
+        <h3>{props.moduleName}</h3>
+      </div>
+      <div className={`${style.content} ${props.extContentClass}`}>{props.children}</div>
     </div>
-    <div className="content">{props.children}</div>
-  </div>
+  );
 }

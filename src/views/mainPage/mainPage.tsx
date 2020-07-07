@@ -1,7 +1,6 @@
 import React from "react";
-import "./mainPage.less";
+import style from "./mainPage.module.less";
 import { inject, observer } from "mobx-react";
-
 import ModuleDisplay from "../../component/ModuleDisplay";
 import UpAndDown from "../../component/UpAndDown";
 import { Link } from "react-router-dom";
@@ -30,21 +29,35 @@ export default class MainPage extends React.Component<any, TState> {
     ],
     posts: [],
   };
+
   constructor(props: any) {
     super(props);
     new Array(10).fill(0).map((ele: number) => {
-      const _singlePost = new SinglePOst("asdf", new User("asdf", "asdfasdf", "asdfwerqwer"), "like", Date.now(), "content", "newONe", "rqwerqwer");
+      const _singlePost = new SinglePOst({
+        title: "title",
+        headIcon: require("../../assets/images/home/icon_Navigationbar_class.png"),
+        content: "content",
+        tag: "tag",
+        poster: new User("name", "icon", "title"),
+        postTime: Date.now(),
+        options: "comment",
+      });
       this.state.posts.push(_singlePost);
     });
   }
+
+  componentDidMount() {
+    console.log(this);
+  }
+
   render() {
     return (
-      <div className="mainPage">
-        <img src={require("../../assets/images/bg_banner.png")} alt="banner" />
+      <div className={style.mainPage}>
+        <img src={require("../../assets/images/bg_banner.png")} alt="banner"/>
         <ModuleDisplay headICon={require("../../assets/images/home/ic_collection_press.png")} moduleName="今日之星">
           {[1, 2, 3, 4, 5].map((ele, index) => (
             <UpAndDown key={index}>
-              <img src={require("../../assets/images/home/ic_collection_press.png")} alt="hea" />
+              <img src={require("../../assets/images/home/ic_collection_press.png")} alt="hea"/>
               <div className="down">index</div>
             </UpAndDown>
           ))}
@@ -53,18 +66,19 @@ export default class MainPage extends React.Component<any, TState> {
           {this.state.firendList.map((ele, index) => (
             <Link to={`/${ele.router}`} key={index}>
               <UpAndDown>
-                <img src={ele.imgSrc} alt="imgSrc" />
+                <img src={ele.imgSrc} alt="imgSrc"/>
                 <div className="down">{ele.tag}</div>
               </UpAndDown>
             </Link>
           ))}
         </ModuleDisplay>
         <ModuleDisplay headICon={require("../../assets/images/home/ic_home_notic.png")} moduleName="学院通知">
-          <div>asdfasd</div>
+          <Post postInfo={this.state.posts[0]}/>
         </ModuleDisplay>
-        <ModuleDisplay headICon={require("../../assets/images/home/icon_Navigationbar_demand.png")} moduleName="帖子广场" extClass="posetSquery">
+        <ModuleDisplay headICon={require("../../assets/images/home/icon_Navigationbar_demand.png")} moduleName="帖子广场"
+                       extClass={style.posetSquery} extTtileClass={style.title} extContentClass={style.content}>
           {this.state.posts.map((ele: IPost, index: number) => (
-            <Post key={index} postInfo={ele}></Post>
+            <Post key={index} postInfo={ele}/>
           ))}
         </ModuleDisplay>
       </div>

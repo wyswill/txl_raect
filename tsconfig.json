@@ -2,7 +2,11 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -15,7 +19,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "typeRoots": ["src/types"]
+    "typeRoots": [
+      "src/types"
+    ],
+    "removeComments": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

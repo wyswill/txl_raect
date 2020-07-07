@@ -6,6 +6,7 @@ declare interface IUser {
   };
   extInfo: {};
 }
+
 declare interface IPost {
   title: string;
   content?: string;
@@ -22,4 +23,8 @@ declare interface IMsg {
   user: IUser;
   time: string | number;
   content: string;
+}
+declare module "*.less" {
+  const resource: { [key: string]: string };
+  export = resource;
 }

@@ -8,7 +8,7 @@ export default class SinglePOst implements IPost {
   options: "like" | "start" | "delete" | "comment";
   extData?: any;
 
-  constructor(title: string, poster: IUser, options: "like" | "start" | "delete" | "comment", postTime: string | number, content?: string | undefined, tag?: string | undefined, headIcon?: string | undefined, extData?: any) {
+  constructor({ title, poster, content, options, postTime, tag, headIcon, extData }: IPost) {
     this.title = title;
     this.content = content;
     this.tag = tag;
