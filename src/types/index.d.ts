@@ -6,7 +6,6 @@ declare interface IUser {
   };
   extInfo: {};
 }
-
 declare interface IPost {
   title: string;
   content?: string;
