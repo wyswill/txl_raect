@@ -98,8 +98,7 @@ class App extends React.Component<any, any, Tstate> {
                     <p>{ele.name}</p>
                   </UpAndDown>
                 </div>
-            )
-        )
+            ))
         }
       </div>
 
@@ -109,6 +108,7 @@ class App extends React.Component<any, any, Tstate> {
 }
 
 function switchPage(name: string) {
+  // noinspection NonAsciiCharacters
   const map: { [index: string]: any } = {
     "首页": <MainPage/>, "广场": <Plaza/>, "群组": <Group/>, "消息": <Msg/>, "我的": <Mine/>,
   }

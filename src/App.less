@@ -1,5 +1,5 @@
 .App {
-  height: 90vh;
+  height: 100vh;
   background: #f2f5f7;
 
   .swiper-container {
@@ -7,11 +7,16 @@
   }
 
   .buttonBar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(171, 171, 171, 0.21);
     height: 10vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 0 0.05rem 0.11rem -0.03rem rgba(0, 0, 0, .2), 0 -0.08rem 0.13rem 0 rgba(0, 0, 0, .14), 0 0.03rem 0.27rem 0 rgba(0, 0, 0, .12);
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
 
     .active {
       background: red;

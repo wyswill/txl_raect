@@ -32,8 +32,10 @@ export default class MainPage extends React.Component<any, TState> {
           <ModuleDisplay headICon={headIcon3} moduleName='学院通知'>
             <div>asdfasd</div>
           </ModuleDisplay>
-          <ModuleDisplay headICon={headIcon4} moduleName='帖子广场'>
-            <div>asdfasd</div>
+          <ModuleDisplay headICon={headIcon4} moduleName='帖子广场' extClass='posetSquery'>
+            {
+              new Array(30).fill(0).map((ele, index) => <div key={index}>asdfasd</div>)
+            }
           </ModuleDisplay>
         </div>
     );
