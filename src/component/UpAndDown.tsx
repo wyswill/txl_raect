@@ -2,7 +2,8 @@ import React from "react";
 import '../styles/UpAndDown.less'
 
 type TProps = {
-  children: object[]
+  children: object[],
+  extraClass?: string
 }
 export default function UpAndDown(props: TProps) {
   const {children} = props
@@ -12,7 +13,7 @@ export default function UpAndDown(props: TProps) {
   };
   if (children.length < 2 || children.length > 2) return <div style={_style}>必须传入两个元素 </div>
   return (
-      <div className='UpAndDown'>
+      <div className={`UpAndDown ${props.extraClass}`}>
         {children}
       </div>
   )

@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "./styles/base.less";
 import {Provider} from 'mobx-react'
 import mobx from "./mobx/mobx";
+import Myrouter from "./router";
 
 ReactDOM.render(
     <React.StrictMode>
       <Provider {...mobx}>
-        <App/>
+        <Myrouter/>
       </Provider>
     </React.StrictMode>,
     document.getElementById("root")
