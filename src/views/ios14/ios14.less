@@ -1,0 +1,126 @@
+.Ios14 {
+  background: url("../../assets/ios14/bg.JPG") no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  color: #ccc;
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+
+    img {
+      width: 24px;
+    }
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
+
+    .time {
+      font-size: 50px;
+    }
+  }
+
+  .bottonOptons {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 6vh;
+    width: 87vw;
+    padding: 0 20px;
+
+    .item {
+      padding: 10px;
+      border-radius: 50%;
+      backdrop-filter: blur(17px) invert(79%);
+      background: rgba(162, 159, 159, 0.5);
+
+      img {
+        width: 35px;
+      }
+    }
+  }
+
+  .enterPwd {
+    height: 100vh;
+    position: absolute;
+    top: 100vh;
+    padding-top: 8vh;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(10px) invert(20%);
+    background: #2d2d2d8f;
+    animation: 450ms ease-in forwards showPwd;
+
+    .tip {
+      color: #fff;
+      font-size: 17px;
+      margin-top: 9vh;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+
+      .pwd_dot {
+        width: 12px;
+        height: 12px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        margin: 11px 10px;
+      }
+    }
+
+    .numPad {
+      display: grid;
+      grid-template-rows: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+      margin: 5vh 5vw;
+      margin-bottom: 0;
+
+      .numpadItem {
+        color: #fff;
+        border-radius: 50%;
+        backdrop-filter: blur(20px) invert(80%);
+        width: 60px;
+        height: 60px;
+        margin-bottom: 30px;
+
+        &:hover {
+          background: #ffffff00;
+        }
+
+        p {
+          font-size: 23px;
+        }
+      }
+
+      #numpadItem_9 {
+        visibility: hidden;
+      }
+
+      #numpadItem_0, #numpadItem_10 {
+        line-height: 60px;
+      }
+
+    }
+  }
+}
+
+@keyframes showPwd {
+  from {
+    top: 100vh;
+  }
+  to {
+    top: 0vh;
+  }
+}
