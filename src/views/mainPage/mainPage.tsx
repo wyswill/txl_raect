@@ -27,13 +27,8 @@ export default class MainPage extends React.Component<any, TState> {
       { tag: "星座速配", imgSrc: require("../../assets/images/home/icon_Navigationbar_.png"), router: "StartSin" },
       { tag: "高级查找", imgSrc: require("../../assets/images/home/icon_Navigationbar_search.png"), router: "Shearch" },
     ],
-    posts: [],
-  };
-
-  constructor(props: any) {
-    super(props);
-    new Array(10).fill(0).map((ele: number) => {
-      const _singlePost = new SinglePOst({
+    posts: new Array(10).fill(0).map((ele: number) =>
+      new SinglePOst({
         title: "title",
         headIcon: require("../../assets/images/home/icon_Navigationbar_class.png"),
         content: "content",
@@ -41,9 +36,12 @@ export default class MainPage extends React.Component<any, TState> {
         poster: new User("name", "icon", "title"),
         postTime: Date.now(),
         options: "comment",
-      });
-      this.state.posts.push(_singlePost);
-    });
+      }),
+    ),
+  };
+
+  constructor(props: any) {
+    super(props);
   }
 
   componentDidMount() {
