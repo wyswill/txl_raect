@@ -65,6 +65,10 @@ export default class Ios14 extends React.Component<TProps, TState> {
     }
   }
 
+  bottomItemClick(event: any) {
+    event.stopPropagation();
+  }
+
   render() {
     return (
         <div className="Ios14" onClick={this.showEnterPwd.bind(this)}>
@@ -102,7 +106,7 @@ export default class Ios14 extends React.Component<TProps, TState> {
                       <span className={"time"}>{this.state.time}</span>
                       <span className={"month"}>{this.state.month}</span>
                     </div>
-                    <div className="bottonOptons">
+                    <div className="bottonOptons" onClick={this.bottomItemClick.bind(this)}>
                       <div className="item">
                         <img src={require("../../assets/ios14/icon-.png")} alt=""/>
                       </div>

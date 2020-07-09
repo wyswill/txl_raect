@@ -34,7 +34,6 @@ type Tstate = {
 
 class App extends React.Component<any, any, Tstate> {
   public readonly state: Readonly<Tstate> = {
-    // pages: ['首页', '广场', '群组', '消息', '我的'],
     pages: [
       {
         name: "首页",
