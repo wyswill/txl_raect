@@ -44,7 +44,8 @@ export default class Mainscrean extends React.Component<any, TState> {
           {({ botton }) => (
             <div className="swiper-container" style={{ height: `97%` }}>
               <div className="swiper-wrapper">
-                <div className="swiper-slide">asdfasd</div>
+                <div className="swiper-slide">
+                </div>
                 <div className="container swiper-slide">
                   <div className="center ">
                     {this.state.apps.map((ele, key) => {
