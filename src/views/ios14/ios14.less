@@ -1,48 +1,54 @@
 .Ios14 {
-  background: url("../../assets/ios14/bg.JPG") no-repeat;
-  background-size: cover;
   height: 100vh;
   overflow: hidden;
   color: #ccc;
 
-  .top {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 10px;
+  .container {
+    .basepae {
+      position: relative;
+      height: 100vh;
+      background: url("../../assets/ios14/bg.JPG") no-repeat;
+      background-size: cover;
 
-    img {
-      width: 24px;
-    }
-  }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 10px;
 
-  .center {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    flex-direction: column;
-    align-items: center;
+        img {
+          width: 24px;
+        }
+      }
 
-    .time {
-      font-size: 50px;
-    }
-  }
+      .center {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        flex-direction: column;
+        align-items: center;
 
-  .bottonOptons {
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    bottom: 6vh;
-    width: 87vw;
-    padding: 0 20px;
+        .time {
+          font-size: 50px;
+        }
+      }
 
-    .item {
-      padding: 10px;
-      border-radius: 50%;
-      backdrop-filter: blur(17px) invert(79%);
-      background: rgba(162, 159, 159, 0.5);
+      .bottonOptons {
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 6vh;
+        width: 87vw;
+        padding: 0 20px;
 
-      img {
-        width: 35px;
+        .item {
+          padding: 10px;
+          border-radius: 50%;
+          backdrop-filter: blur(20px) invert(20%);
+
+          img {
+            width: 35px;
+          }
+        }
       }
     }
   }
@@ -50,15 +56,12 @@
   .enterPwd {
     height: 100vh;
     position: absolute;
-    top: 100vh;
     padding-top: 8vh;
     width: 100vw;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    backdrop-filter: blur(10px) invert(20%);
-    background: #2d2d2d8f;
-    animation: 450ms ease-in forwards showPwd;
+    // backdrop-filter: blur(10px) invert(20%);
 
     .tip {
       color: #fff;
@@ -77,6 +80,10 @@
         border-radius: 50%;
         margin: 11px 10px;
       }
+
+      .full {
+        background: #fff;
+      }
     }
 
     .numPad {
@@ -90,14 +97,10 @@
       .numpadItem {
         color: #fff;
         border-radius: 50%;
-        backdrop-filter: blur(20px) invert(80%);
+        backdrop-filter: blur(20px) invert(20%);
         width: 60px;
         height: 60px;
         margin-bottom: 30px;
-
-        &:hover {
-          background: #ffffff00;
-        }
 
         p {
           font-size: 23px;
@@ -108,19 +111,14 @@
         visibility: hidden;
       }
 
-      #numpadItem_0, #numpadItem_10 {
+      #numpadItem_0,
+      #numpadItem_10 {
         line-height: 60px;
       }
-
     }
   }
 }
 
-@keyframes showPwd {
-  from {
-    top: 100vh;
-  }
-  to {
-    top: 0vh;
-  }
+.numpadItem:hover {
+  background: #bdbabafa;
 }
