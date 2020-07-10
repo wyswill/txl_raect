@@ -37,50 +37,80 @@ export default class Mainscrean extends React.Component<any, TState> {
         <div className="top">
           <span>{this.state.time}</span>
           <span>
-            <img src={require("../../../assets/ios14/xinhao.png")} alt=""/>
-            <img src={require("../../../assets/ios14/xinhao_1.png")} alt=""/>
-            <img src={require("../../../assets/ios14/iconset0252.png")} alt=""/>
+            <img src={require("../../../assets/ios14/xinhao.png")} alt="" />
+            <img src={require("../../../assets/ios14/xinhao_1.png")} alt="" />
+            <img src={require("../../../assets/ios14/iconset0252.png")} alt="" />
           </span>
         </div>
-        <Motion defaultStyle={{ botton: -15, x: 20, scall: 20, scall2: 40 }} style={{
-          botton: spring(2, { stiffness: 120, damping: 20 }),
-          scall: spring(0, { stiffness: 120, damping: 20 }),
-          scall2: spring(0, { stiffness: 120, damping: 20 }),
-        }}>
+        <Motion
+          defaultStyle={{ botton: -15, x: 20, scall: 20, scall2: 40 }}
+          style={{
+            botton: spring(2, { stiffness: 120, damping: 20 }),
+            scall: spring(0, { stiffness: 120, damping: 20 }),
+            scall2: spring(0, { stiffness: 120, damping: 20 }),
+          }}
+        >
           {({ botton, scall, scall2 }) => (
             <div className="swiper-container" style={{ height: `97%` }}>
               <div className="swiper-wrapper">
                 <div className="swiper-slide">
-                  <LeftBar/>
+                  <LeftBar />
                 </div>
                 <div className="container swiper-slide">
                   <div className="center ">
                     {this.state.apps.map((ele, key) => {
                       let style = {};
-                      const topLeft2 = [0, 1, 4], topLeft = [5], topRight2 = [2, 3, 7], topRight = [6], bottomLeft = [9], bottomLeft2 = [8, 12, 13, 16, 17], bottomRight = [10], bottomRight2 = [11, 14, 15, 18, 19];
-                      if (topLeft2.indexOf(key) >= 0) style = { transform: `translate3d(-${scall2}vh, -${scall2}vh, 0)` };
-                      if (topLeft.indexOf(key) >= 0) style = { transform: `translate3d(-${scall}vh, -${scall}vh, 0)` };
-                      if (topRight.indexOf(key) >= 0) style = { transform: `translate3d(${scall}vh, -${scall}vh, 0)` };
-                      if (topRight2.indexOf(key) >= 0) style = { transform: `translate3d(${scall2}vh, -${scall2}vh, 0)` };
-                      if (bottomLeft.indexOf(key) >= 0) style = { transform: `translate3d(-${scall}vh, ${scall}vh, 0)` };
-                      if (bottomLeft2.indexOf(key) >= 0) style = { transform: `translate3d(-${scall2}vh, ${scall2}vh, 0)` };
-                      if (bottomRight.indexOf(key) >= 0) style = { transform: `translate3d(${scall}vh, ${scall}vh, 0)` };
-                      if (bottomRight2.indexOf(key) >= 0) style = { transform: `translate3d(${scall2}vh, ${scall2}vh, 0)` };
+                      switch (key) {
+                        case 5:
+                          style = { transform: `translate3d(-${scall}vh, -${scall}vh, 0)` };
+                          break;
+                        case 0:
+                        case 1:
+                        case 4:
+                          style = { transform: `translate3d(-${scall2}vh, -${scall2}vh, 0)` };
+                          break;
+                        case 6:
+                          style = { transform: `translate3d(${scall}vh, -${scall}vh, 0)` };
+                          break;
+                        case 2:
+                        case 3:
+                        case 7:
+                          style = { transform: `translate3d(${scall2}vh, -${scall2}vh, 0)` };
+                          break;
+                        case 9:
+                          style = { transform: `translate3d(-${scall}vh, ${scall}vh, 0)` };
+                          break;
+                        case 8:
+                        case 12:
+                        case 13:
+                        case 16:
+                        case 17:
+                          style = { transform: `translate3d(-${scall2}vh, ${scall2}vh, 0)` };
+                          break;
+                        case 10:
+                          style = { transform: `translate3d(${scall}vh, ${scall}vh, 0)` };
+                          break;
+                        case 11:
+                        case 14:
+                        case 15:
+                        case 18:
+                        case 19:
+                          style = { transform: `translate3d(${scall2}vh, ${scall2}vh, 0)` };
+                          break;
+                      }
+
                       return (
                         <div className="app" key={key} style={style} data-ind={key}>
-                          <img src={require(`../../../assets/ios14/${ele}.png`)} alt={ele}/>
+                          <img src={require(`../../../assets/ios14/${ele}.png`)} alt={ele} />
                           <span>{ele}</span>
                         </div>
                       );
                     })}
                   </div>
-                  <div
-                    className="docker"
-                    style={{ bottom: `${botton}vh` }}
-                  >
+                  <div className="docker" style={{ bottom: `${botton}vh` }}>
                     {this.state.apps.slice(0, 4).map((ele, index) => (
                       <div className="app" key={index}>
-                        <img src={require(`../../../assets/ios14/${ele}.png`)} alt={ele}/>
+                        <img src={require(`../../../assets/ios14/${ele}.png`)} alt={ele} />
                       </div>
                     ))}
                   </div>
