@@ -42,11 +42,12 @@ export default class Mainscrean extends React.Component<any, TState> {
             <img src={require("../../../assets/ios14/iconset0252.png")} alt=""/>
           </span>
         </div>
-        <Motion defaultStyle={{ botton: -15, x: 20, scall: 20 }} style={{
+        <Motion defaultStyle={{ botton: -15, x: 20, scall: 20, scall2: 40 }} style={{
           botton: spring(2, { stiffness: 120, damping: 20 }),
           scall: spring(0, { stiffness: 120, damping: 20 }),
+          scall2: spring(0, { stiffness: 120, damping: 20 }),
         }}>
-          {({ botton, scall }) => (
+          {({ botton, scall, scall2 }) => (
             <div className="swiper-container" style={{ height: `97%` }}>
               <div className="swiper-wrapper">
                 <div className="swiper-slide">
@@ -56,11 +57,15 @@ export default class Mainscrean extends React.Component<any, TState> {
                   <div className="center ">
                     {this.state.apps.map((ele, key) => {
                       let style = {};
-                      const topLeft = [0, 1, 4, 5], topRight = [2, 3, 6, 7], bottomLeft = [8, 9, 12, 13, 16, 17], bottomRight = [10, 11, 14, 15, 18, 19];
+                      const topLeft2 = [0, 1, 4], topLeft = [5], topRight2 = [2, 3, 7], topRight = [6], bottomLeft = [9], bottomLeft2 = [8, 12, 13, 16, 17], bottomRight = [10], bottomRight2 = [11, 14, 15, 18, 19];
+                      if (topLeft2.indexOf(key) >= 0) style = { transform: `translate3d(-${scall2}vh, -${scall2}vh, 0)` };
                       if (topLeft.indexOf(key) >= 0) style = { transform: `translate3d(-${scall}vh, -${scall}vh, 0)` };
                       if (topRight.indexOf(key) >= 0) style = { transform: `translate3d(${scall}vh, -${scall}vh, 0)` };
+                      if (topRight2.indexOf(key) >= 0) style = { transform: `translate3d(${scall2}vh, -${scall2}vh, 0)` };
                       if (bottomLeft.indexOf(key) >= 0) style = { transform: `translate3d(-${scall}vh, ${scall}vh, 0)` };
+                      if (bottomLeft2.indexOf(key) >= 0) style = { transform: `translate3d(-${scall2}vh, ${scall2}vh, 0)` };
                       if (bottomRight.indexOf(key) >= 0) style = { transform: `translate3d(${scall}vh, ${scall}vh, 0)` };
+                      if (bottomRight2.indexOf(key) >= 0) style = { transform: `translate3d(${scall2}vh, ${scall2}vh, 0)` };
                       return (
                         <div className="app" key={key} style={style} data-ind={key}>
                           <img src={require(`../../../assets/ios14/${ele}.png`)} alt={ele}/>
@@ -71,9 +76,7 @@ export default class Mainscrean extends React.Component<any, TState> {
                   </div>
                   <div
                     className="docker"
-                    style={{
-                      bottom: `${botton}vh`,
-                    }}
+                    style={{ bottom: `${botton}vh` }}
                   >
                     {this.state.apps.slice(0, 4).map((ele, index) => (
                       <div className="app" key={index}>
@@ -81,9 +84,7 @@ export default class Mainscrean extends React.Component<any, TState> {
                       </div>
                     ))}
                   </div>
-                  {" "}
                 </div>
-                <div className="swiper-slide">asdfasd</div>
               </div>
             </div>
           )}
