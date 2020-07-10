@@ -4,6 +4,7 @@ import { timeHandler } from "../Ios14";
 import { Motion, spring } from "react-motion";
 import swiper from "swiper";
 import "swiper/swiper.less";
+import LeftBar from "./leftBar";
 
 type TState = {
   timer: any;
@@ -49,6 +50,7 @@ export default class Mainscrean extends React.Component<any, TState> {
             <div className="swiper-container" style={{ height: `97%` }}>
               <div className="swiper-wrapper">
                 <div className="swiper-slide">
+                  <LeftBar/>
                 </div>
                 <div className="container swiper-slide">
                   <div className="center ">

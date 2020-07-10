@@ -1,2 +1,50 @@
 @import "../base.less";
 
+.LeftBar {
+  color: #ffffff;
+  margin: 0 2vw;
+
+  .search {
+    display: flex;
+    border-radius: 10px;
+    .gaosi(20px, 20%);
+    background: rgba(255, 255, 255, .5);
+    padding: 4px 7px;
+
+    span {
+      margin-left: 10px;
+    }
+
+    img {
+      width: 18px;
+    }
+  }
+
+  .tip {
+    .gaosi(20px, 20%);
+    margin: 10px 0;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .5);
+
+    .title {
+      padding: 4px 7px;
+      position: sticky;
+      top: 0px;
+      height: 25px;
+      border-radius: 10px;
+
+      span {
+        margin-left: 20px;
+      }
+    }
+
+    .content {
+      text-align: center;
+      height: 12vh;
+    }
+
+    img {
+      width: 23px;
+    }
+  }
+}
